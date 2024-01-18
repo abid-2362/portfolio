@@ -1,3 +1,18 @@
+<div style="color:red; background-color: yellow; padding: 10px">
+<h1 style="font-family: sans-serif">Installing Pod on M1 MacOS:</h1>
+</div>
+
+Installing Pod on M1 MacOS creates problem. Here is the solution
+
+https://github.com/CocoaPods/CocoaPods/issues/11641#issuecomment-1323173766
+Thanks @ApollonSeven (message) this helped me, but the issue ended up being because RN build wasn't working with M1. So I went step by step instead.
+
+turns out I needed to do
+`arch -arm64 bundle install`
+`arch -arm64 bundle exec pod install`
+instead
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
