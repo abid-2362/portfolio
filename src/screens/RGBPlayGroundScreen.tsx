@@ -54,6 +54,7 @@ const RGBPlayGroundScreen = () => {
   return (
     <View style={styles.screen}>
       <FunctionSection
+        amount={state.red}
         title={'Red'}
         onIncrease={() => {
           dispatch({type: 'red', payload: CHANGE_VALUE});
@@ -64,6 +65,7 @@ const RGBPlayGroundScreen = () => {
       />
       <FunctionSection
         title={'Green'}
+        amount={state.green}
         onIncrease={() => {
           dispatch({type: 'green', payload: CHANGE_VALUE});
         }}
@@ -73,6 +75,7 @@ const RGBPlayGroundScreen = () => {
       />
       <FunctionSection
         title={'Blue'}
+        amount={state.blue}
         onIncrease={() => {
           dispatch({type: 'blue', payload: CHANGE_VALUE});
         }}

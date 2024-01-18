@@ -36,7 +36,7 @@ function App(): React.JSX.Element {
           backgroundColor={backgroundStyle.backgroundColor}
         />
       </SafeAreaView>
-      <Stack.Navigator initialRouteName={'BoxScreen'}>
+      <Stack.Navigator initialRouteName={'Home'}>
         <Stack.Screen name={'Home'} component={HomeScreen} />
         <Stack.Screen name={'Counter'} component={CounterScreen} />
         <Stack.Screen name={'Color'} component={ColorScreen} />
