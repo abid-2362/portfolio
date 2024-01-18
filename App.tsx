@@ -17,6 +17,7 @@ import CounterScreen from './src/screens/CounterScreen.tsx';
 import ColorScreen from './src/screens/ColorScreen.tsx';
 import RGBPlayGroundScreen from './src/screens/RGBPlayGroundScreen.tsx';
 import TextScreen from './src/screens/TextScreen.tsx';
+import BoxScreen from './src/screens/BoxScreen.tsx';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,7 +36,7 @@ function App(): React.JSX.Element {
           backgroundColor={backgroundStyle.backgroundColor}
         />
       </SafeAreaView>
-      <Stack.Navigator initialRouteName={'Text'}>
+      <Stack.Navigator initialRouteName={'BoxScreen'}>
         <Stack.Screen name={'Home'} component={HomeScreen} />
         <Stack.Screen name={'Counter'} component={CounterScreen} />
         <Stack.Screen name={'Color'} component={ColorScreen} />
@@ -44,6 +45,11 @@ function App(): React.JSX.Element {
           name={'Text'}
           component={TextScreen}
           options={{title: 'Text Demo'}}
+        />
+        <Stack.Screen
+          name={'BoxScreen'}
+          component={BoxScreen}
+          options={{title: 'Box Model in React Native'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
