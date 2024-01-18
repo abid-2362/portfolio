@@ -15,6 +15,7 @@ import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import CounterScreen from './src/screens/CounterScreen.tsx';
 import ColorScreen from './src/screens/ColorScreen.tsx';
+import RGBPlayGroundScreen from './src/screens/RGBPlayGroundScreen.tsx';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,10 +34,11 @@ function App(): React.JSX.Element {
           backgroundColor={backgroundStyle.backgroundColor}
         />
       </SafeAreaView>
-      <Stack.Navigator initialRouteName={'Color'}>
+      <Stack.Navigator initialRouteName={'RGBPlayGround'}>
         <Stack.Screen name={'Home'} component={HomeScreen} />
         <Stack.Screen name={'Counter'} component={CounterScreen} />
         <Stack.Screen name={'Color'} component={ColorScreen} />
+        <Stack.Screen name={'RGBPlayGround'} component={RGBPlayGroundScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

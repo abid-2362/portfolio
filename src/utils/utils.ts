@@ -1,6 +1,12 @@
+import random from 'lodash/random';
+
+const randomNumber = (start: number = 0, end: number = 255): number => {
+  return random(start, end);
+};
+
 export const randomgRGB = (): string => {
-  const red = Math.floor(Math.random() * 256);
-  const green = Math.floor(Math.random() * 256);
-  const blue = Math.floor(Math.random() * 256);
+  const red = randomNumber();
+  const green = randomNumber();
+  const blue = randomNumber();
   return `rgb(${red}, ${green}, ${blue})`;
 };
