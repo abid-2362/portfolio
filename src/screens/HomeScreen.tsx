@@ -1,46 +1,81 @@
 import * as React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
+import { StyleSheet, ScrollView, View } from 'react-native';
+import { Button, Divider, Text } from 'react-native-paper';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import Spacer from '../components/Spacer.tsx';
+import { HomeNavigatorParamsList } from '../types/types.ts';
 
 const HomeScreen = () => {
-  const navigator: NavigationProp<any> = useNavigation();
+  const navigator: NavigationProp<HomeNavigatorParamsList> = useNavigation();
 
   return (
-    <View style={styles.screen}>
-      <Text>Home Screen</Text>
-      <Button
-        title={'Counter Demo'}
-        onPress={() => navigator.navigate('Counter')}
-      />
+    <ScrollView style={styles.screen} contentContainerStyle={styles.contentStyles}>
+      <View style={styles.viewStyle}>
+        <Text variant={'bodyLarge'} style={styles.centerText}>
+          Home Screen
+        </Text>
+        <Button style={styles.button} mode={'contained'} onPress={() => navigator.navigate('Counter')}>
+          Counter Demo
+        </Button>
 
-      <Button
-        title={'Color Demo'}
-        onPress={() => navigator.navigate('Color')}
-      />
+        <Button style={styles.button} mode={'contained'} onPress={() => navigator.navigate('Color')}>
+          Color Demo
+        </Button>
 
-      <Button
-        title={'RGB Playground Demo'}
-        onPress={() => navigator.navigate('RGBPlayGround')}
-      />
+        <Button style={styles.button} mode={'contained'} onPress={() => navigator.navigate('RGBPlayGround')}>
+          RGB Playground Demo
+        </Button>
 
-      <Button
-        title={'Text Field Demo'}
-        onPress={() => navigator.navigate('Text')}
-      />
+        <Button style={styles.button} mode={'contained'} onPress={() => navigator.navigate('Text')}>
+          Text Field Demo
+        </Button>
 
-      <Button
-        title={'Box Demo'}
-        onPress={() => navigator.navigate('BoxScreen')}
-      />
-    </View>
+        <Button style={styles.button} mode={'contained'} onPress={() => navigator.navigate('BoxScreen')}>
+          Box Demo
+        </Button>
+
+        <Spacer>
+          <Divider bold={true} />
+        </Spacer>
+        <Text variant={'bodyLarge'} style={styles.centerText}>
+          Style
+        </Text>
+        <Button
+          style={styles.button}
+          mode={'contained'}
+          onPress={() => navigator.navigate('CoffeeShopNavigator', { screen: 'Home' })}>
+          Coffee Shop
+        </Button>
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    width: '100%',
+    // borderColor: 'orange',
+    // borderWidth: 5,
+  },
+  contentStyles: {
+    flex: 1,
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
+    // borderColor: 'blue',
+    // borderWidth: 5,
+  },
+  button: {
+    marginBottom: 5,
+  },
+  viewStyle: {
+    width: '100%',
+    flex: 1,
+    padding: 5,
+  },
+  centerText: {
+    textAlign: 'center',
   },
 });
 
