@@ -2,8 +2,9 @@ import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import { theme } from '../theme';
 
+type SizeType = 'small' | 'medium' | 'large' | 'xl' | 'xxl' | '3xl';
 type SpacerProps = {
-  size?: 'small' | 'medium' | 'large';
+  size?: SizeType;
   position?: 'top' | 'left' | 'right' | 'bottom' | 'all' | 'horizontal' | 'vertical';
   children?: React.ReactNode;
 };
@@ -46,7 +47,7 @@ const Spacer: React.FC<SpacerProps> = ({ size = 'medium', position = 'bottom', c
     return spacerStyle;
   };
 
-  const getSize = (spaceSize: 'small' | 'medium' | 'large'): number => {
+  const getSize = (spaceSize: SizeType): number => {
     switch (spaceSize) {
       case 'small':
         return theme.space[1];
@@ -54,6 +55,13 @@ const Spacer: React.FC<SpacerProps> = ({ size = 'medium', position = 'bottom', c
         return theme.space[2];
       case 'large':
         return theme.space[3];
+      case 'xl':
+        return theme.space[4];
+      case 'xxl':
+        return theme.space[5];
+      case '3xl':
+        return theme.space[4];
+
       default:
         return theme.space[1];
     }

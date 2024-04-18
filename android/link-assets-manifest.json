@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/BerkshireSwash-Regular.ttf",
+      "sha1": "84287a7d6b5df153830946bee4c5d06ed8e117ab"
+    },
+    {
+      "path": "src/assets/fonts/Tangerine-Regular.ttf",
+      "sha1": "de81de284d2c67b45f1e3d6c568cba6e6eb6e320"
+    }
+  ]
+}

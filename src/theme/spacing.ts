@@ -3,7 +3,7 @@ export const lineHeights = {
   copy: '20px',
 };
 
-export const space = [0, 4, 8, 16, 32, 64];
+export const space = [0, 4, 8, 16, 32, 64, 128];
 export const spacepx = space.map(x => x + 'px');
 
 export type Space = typeof space;
