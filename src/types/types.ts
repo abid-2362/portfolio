@@ -1,9 +1,15 @@
 import { NavigatorScreenParams } from '@react-navigation/native';
 import { CoffeeProduct } from './CoffeeShop/CoffeeProduct.ts';
+import { RestaurantProduct } from './Restaurant/RestaurantProduct.ts';
 
 export type CoffeeShopParamsList = {
   Home: undefined;
   Details: { product: CoffeeProduct };
+};
+
+export type RestaurantParamsList = {
+  Home: undefined;
+  Details: { product: RestaurantProduct };
 };
 
 export type HomeNavigatorParamsList = {
@@ -14,4 +20,5 @@ export type HomeNavigatorParamsList = {
   Text: undefined;
   BoxScreen: undefined;
   CoffeeShopNavigator: NavigatorScreenParams<CoffeeShopParamsList>;
+  RestaurantNavigator: NavigatorScreenParams<RestaurantParamsList>;
 };

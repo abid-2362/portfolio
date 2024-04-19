@@ -46,6 +46,13 @@ const HomeScreen = () => {
           onPress={() => navigator.navigate('CoffeeShopNavigator', { screen: 'Home' })}>
           Coffee Shop
         </Button>
+
+        <Button
+          style={styles.button}
+          mode={'contained'}
+          onPress={() => navigator.navigate('RestaurantNavigator', { screen: 'Home' })}>
+          Restaurant App
+        </Button>
       </View>
     </ScrollView>
   );

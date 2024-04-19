@@ -20,6 +20,7 @@ import TextScreen from '../screens/TextScreen.tsx';
 import BoxScreen from '../screens/BoxScreen.tsx';
 import { HomeNavigatorParamsList } from '../types/types.ts';
 import CoffeeShopNavigator from './CoffeeShopNavigator.tsx';
+import RestaurantNavigator from './RestaurantNavigator.tsx';
 
 const Stack = createNativeStackNavigator<HomeNavigatorParamsList>();
 
@@ -49,6 +50,11 @@ function HomeNavigator(): React.JSX.Element {
           name={'CoffeeShopNavigator'}
           component={CoffeeShopNavigator}
           options={{ title: 'Coffee Shop', headerShown: false }}
+        />
+        <Stack.Screen
+          name={'RestaurantNavigator'}
+          component={RestaurantNavigator}
+          options={{ title: 'Restaurant', headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>

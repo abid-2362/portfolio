@@ -13,6 +13,7 @@ import Foundation from 'react-native-vector-icons/Foundation';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import { StyleProp, ViewStyle } from 'react-native';
 import { colors } from '../../theme/colors.ts';
+import { restaurantColors } from '../../theme/restaurantColors.ts';
 
 const Icons = {
   MaterialCommunityIcons,
@@ -43,7 +44,7 @@ const Icon = ({ type, name, color, size = 24, style }: IconProps) => {
   return <>{type && name && <Tag name={name} size={size || fontSize} color={color} style={style} />}</>;
 };
 
-const BackIcon = () => <Icon type={Icons.Ionicons} name={'chevron-back'} color={colors.text.primary} />;
+const BackIcon = () => <Icon type={Icons.Ionicons} name={'chevron-back'} color={restaurantColors.button.bg} />;
 const ShareIcon = () => <Icon type={Icons.Ionicons} name={'share-social'} color={colors.text.primary} />;
 
 export { Icons, BackIcon, ShareIcon };
