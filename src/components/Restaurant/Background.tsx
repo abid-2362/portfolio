@@ -4,8 +4,11 @@ import { restaurantColors } from '../../theme/restaurantColors.ts';
 
 type RestaurantBackgroundProps = {
   children: React.ReactNode;
+  backgroundColor?: string;
 };
-const RestaurantBackground = ({ children }: RestaurantBackgroundProps) => <View style={styles.screen}>{children}</View>;
+const RestaurantBackground = ({ children, backgroundColor = undefined }: RestaurantBackgroundProps) => (
+  <View style={[styles.screen, backgroundColor ? { backgroundColor: backgroundColor } : {}]}>{children}</View>
+);
 
 const styles = StyleSheet.create({
   screen: {
@@ -14,6 +17,7 @@ const styles = StyleSheet.create({
     // borderColor: 'orange',
     // borderWidth: 5,
     backgroundColor: restaurantColors.background,
+    // backgroundColor: restaurantColors.text.headingSecondary,
   },
 });
 

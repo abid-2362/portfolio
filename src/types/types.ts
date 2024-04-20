@@ -10,6 +10,7 @@ export type CoffeeShopParamsList = {
 export type RestaurantParamsList = {
   Home: undefined;
   Details: { product: RestaurantProduct };
+  FullScreenProduct: { product: RestaurantProduct };
 };
 
 export type HomeNavigatorParamsList = {

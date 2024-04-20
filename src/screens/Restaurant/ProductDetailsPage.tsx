@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
-import { Button, IconButton, Text } from 'react-native-paper';
+import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 import useImageSize from '../../hooks/CoffeeShop/useImageSize.ts';
 import { RestaurantParamsList } from '../../types/types.ts';
 import { NavigationProp, RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import RestaurantBackground from '../../components/Restaurant/Background.tsx';
-import Icon, { Icons } from '../../components/common/Icons.tsx';
 import { restaurantColors } from '../../theme/restaurantColors.ts';
 import { space } from '../../theme/spacing.ts';
 import BottomSpacer from '../../components/common/BottomSpacer.tsx';
@@ -15,9 +14,9 @@ import PreperationTime from '../../components/Restaurant/PreperationTime.tsx';
 import UList from '../../components/Restaurant/UList.tsx';
 import NutritionInfo from '../../components/Restaurant/NutritionInfo.tsx';
 import Animated, { FadeInDown, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import BackButton from '../../components/Restaurant/BackButton.tsx';
 
 const initialDelay = 1000;
-const BackIcon = () => <Icon type={Icons.Ionicons} name={'chevron-back'} color={restaurantColors.button.text} />;
 
 type ProductDetailsPageProps = {};
 const ProductDetailsPage = ({}: ProductDetailsPageProps) => {
@@ -25,6 +24,12 @@ const ProductDetailsPage = ({}: ProductDetailsPageProps) => {
   const route: RouteProp<RestaurantParamsList, 'Details'> = useRoute();
   const { product } = route.params;
   const { imageSize } = useImageSize(product.image);
+
+  const nagivateToFullScreen = () => {
+    navigation.navigate('FullScreenProduct', {
+      product: product,
+    });
+  };
 
   const animatedStyles = useAnimatedStyle(() => {
     return {
@@ -39,13 +44,14 @@ const ProductDetailsPage = ({}: ProductDetailsPageProps) => {
 
   return (
     <RestaurantBackground>
-      <View style={styles.backIconContainer}>
-        <IconButton icon={BackIcon} onPress={navigation.goBack} style={styles.iconButton} />
-      </View>
+      <BackButton />
+
       <ScrollView style={styles.screen} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
         <View>
           {imageSize.width > 1 ? (
-            <Animated.Image source={product.image} style={[styles.imageStyles, animatedStyles]} />
+            <TouchableOpacity onPress={nagivateToFullScreen}>
+              <Animated.Image source={product.image} style={[styles.imageStyles, animatedStyles]} />
+            </TouchableOpacity>
           ) : null}
         </View>
         <View style={styles.mainAreaContainer}>
@@ -101,21 +107,12 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
   },
-  backIconContainer: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    zIndex: 999,
-    // backgroundColor: 'white',
-  },
-  iconButton: {
-    backgroundColor: restaurantColors.button.bg,
-  },
+
   mainAreaContainer: {
     padding: space[4],
     backgroundColor: restaurantColors.background,
     position: 'relative',
-    // top: -10,
+    top: -10,
     borderRadius: space[2],
   },
   section: {
@@ -128,17 +125,6 @@ const styles = StyleSheet.create({
     color: restaurantColors.text.headingSecondary,
     fontWeight: '900',
     textAlign: 'right',
-  },
-  ingredient: {
-    marginLeft: space[2],
-  },
-  bullet: {
-    fontSize: 16,
-    // marginRight: space[2],
-  },
-  ninfo: {
-    color: restaurantColors.text.headingSecondary,
-    fontWeight: 'bold',
   },
   imageStyles: {
     width: '100%',
