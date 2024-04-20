@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { fonts } from '../theme/fonts.ts';
 import { restaurantColors } from '../theme/restaurantColors.ts';
 
-const coffeeShopStyles = StyleSheet.create({
+const restaurantStyles = StyleSheet.create({
   titleText: {
     color: restaurantColors.text.headingSecondary,
     // fontFamily: fonts.heading,
@@ -21,4 +21,4 @@ const coffeeShopStyles = StyleSheet.create({
   },
 });
 
-export default coffeeShopStyles;
+export default restaurantStyles;

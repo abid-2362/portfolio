@@ -11,6 +11,7 @@ export type RestaurantParamsList = {
   Home: undefined;
   Details: { product: RestaurantProduct };
   FullScreenProduct: { product: RestaurantProduct };
+  Cart: undefined;
 };
 
 export type HomeNavigatorParamsList = {
@@ -22,4 +23,9 @@ export type HomeNavigatorParamsList = {
   BoxScreen: undefined;
   CoffeeShopNavigator: NavigatorScreenParams<CoffeeShopParamsList>;
   RestaurantNavigator: NavigatorScreenParams<RestaurantParamsList>;
+};
+
+export type ActionType<PayloadType> = {
+  type: string;
+  payload?: PayloadType;
 };

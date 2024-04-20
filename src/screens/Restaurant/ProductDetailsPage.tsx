@@ -15,6 +15,8 @@ import UList from '../../components/Restaurant/UList.tsx';
 import NutritionInfo from '../../components/Restaurant/NutritionInfo.tsx';
 import Animated, { FadeInDown, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import BackButton from '../../components/Restaurant/BackButton.tsx';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext.ts';
 
 const initialDelay = 1000;
 
@@ -25,10 +27,17 @@ const ProductDetailsPage = ({}: ProductDetailsPageProps) => {
   const { product } = route.params;
   const { imageSize } = useImageSize(product.image);
 
+  const { addToCart } = useContext(CartContext);
+
   const nagivateToFullScreen = () => {
     navigation.navigate('FullScreenProduct', {
       product: product,
     });
+  };
+
+  const handleAddToCart = () => {
+    const cartItem = Object.assign(product, { qty: 1 });
+    addToCart(cartItem);
   };
 
   const animatedStyles = useAnimatedStyle(() => {
@@ -92,7 +101,7 @@ const ProductDetailsPage = ({}: ProductDetailsPageProps) => {
           </Animated.View>
 
           <Animated.View entering={FadeInDown.delay(initialDelay + 800)}>
-            <Button mode={'contained'} buttonColor={restaurantColors.button.bg}>
+            <Button mode={'contained'} buttonColor={restaurantColors.button.bg} onPress={handleAddToCart}>
               Order for ${product.price}
             </Button>
           </Animated.View>

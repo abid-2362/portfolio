@@ -19,3 +19,5 @@ export type RestaurantProduct = {
   serving_size: string;
   special_instructions: string;
 };
+
+export type RestaurantCartItem = RestaurantProduct & { qty: number };
